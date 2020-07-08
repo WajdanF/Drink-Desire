@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:germaway/models/user.dart';
+import 'package:germaway/services/database.dart';
 
 class AuthService{
 //Creating user obj based on Firebase user
@@ -46,6 +47,7 @@ Future registerEmailPassword(String email, String password) async{
 try{
 AuthResult result = await _auth.createUserWithEmailAndPassword(email: email, password: password);  
 FirebaseUser user = result.user;
+await DataBaseService(uid:user.uid).updateUserData('0','new memeber',100);
 return _userFromFirebaseUser(user);
 }
 catch(e){
