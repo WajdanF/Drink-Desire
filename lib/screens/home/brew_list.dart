@@ -17,8 +17,29 @@ class _BrewListState extends State<BrewList> {
   print(brew.strength);
    });
 
-    return Container(
-      
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical:5),
+      child: ListView.builder(
+        itemCount: brews.length,
+        itemBuilder: (context, index ){
+          int x = brews[index].strength;
+          return Card(
+            child: ListTile(
+            onTap: (){
+              
+            },
+            leading: CircleAvatar(
+              backgroundColor: Colors.brown[x],
+            ),
+            title: Text('strength'),
+          
+
+                       
+            )
+          );
+        }
+        ),
     );
+
   }
 }
