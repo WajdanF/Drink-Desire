@@ -25,7 +25,7 @@ return snapshot.documents.map((doc) {
 return Brew(
   name:doc.data['name'] ?? '',
   sugar: doc.data['sugar'] ?? '0',
-  strength: doc.data['strength'] ?? 0 
+  strength: doc.data['strength'] ?? 100 
 );
 }).toList();
 }

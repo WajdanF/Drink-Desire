@@ -24,6 +24,12 @@ class _BrewListState extends State<BrewList> {
         itemBuilder: (context, index ){
           int x = brews[index].strength;
           return Card(
+            margin: EdgeInsets.fromLTRB(10, 5, 10, 5),
+             shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(10))
+
+
+          ) ,
             child: ListTile(
             onTap: (){
               
@@ -31,10 +37,11 @@ class _BrewListState extends State<BrewList> {
             leading: CircleAvatar(
               backgroundColor: Colors.brown[x],
             ),
-            title: Text('strength'),
-          
+            title: Text('${brews[index].name}'),
+            subtitle: Text('${brews[index].sugar} sugars'),
 
-                       
+
+  
             )
           );
         }

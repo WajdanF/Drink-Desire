@@ -62,6 +62,7 @@ Future signOut() async{
   } 
   catch(e){
     print(e);
+      
     return null;
   }
 }
