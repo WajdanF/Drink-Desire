@@ -27,7 +27,7 @@ class _Brew_SettingState extends State<Brew_Setting> {
         key: _formkey,
         child: Column(
           children: <Widget>[
-            SizedBox(height: 10,),
+            SizedBox(height: 10,),  
             
             Text("Settings",
             style: TextStyle(
@@ -40,8 +40,8 @@ class _Brew_SettingState extends State<Brew_Setting> {
                 labelText: 'Name',
               ),
               validator: (val) => val.isNotEmpty ? 'Please enter a name': null,
-              onChanged: (val) => setState(()=> _currentName = val),
-            ),
+              onChanged: (val) => setState(()  => _currentName = val),
+            ),  
             SizedBox(height: 20,),
 
             DropdownButtonFormField(
