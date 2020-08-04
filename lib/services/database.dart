@@ -51,7 +51,7 @@ return Brew(
  Stream<UserData> get userData{
    return restrictionCollection.document(uid).snapshots()
    .map((_userDataFromSnapspot));
- }   
+ }    
  
 
 
