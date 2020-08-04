@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import'package:germaway/models/brew.dart';
+import 'package:germaway/models/user.dart';
 
 class DataBaseService{
 
@@ -29,10 +30,29 @@ return Brew(
 );
 }).toList();
 }
+
    //Get brews strem
   Stream<List<Brew>> get brews{
     return restrictionCollection.snapshots()
     .map(_brewListFromSnapshot); 
  }
+
+ //userData from snapshot
+ UserData _userDataFromSnapspot (DocumentSnapshot snapshot){
+   return UserData(
+     uid: uid,
+     name: snapshot.data['name'],
+     strength: snapshot.data['strength'],
+     sugar: snapshot.data['sugar'],
+
+   );
+ }
+ //get user doc stream
+ Stream<UserData> get userData{
+   return restrictionCollection.document(uid).snapshots()
+   .map((_userDataFromSnapspot));
+ }   
+ 
+
 
 }
