@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:germaway/models/constants.dart';
+import 'package:germaway/models/loading.dart';
 import 'package:germaway/models/user.dart';
 import 'package:germaway/services/database.dart';
 import 'package:provider/provider.dart';
@@ -24,6 +25,8 @@ class _Brew_SettingState extends State<Brew_Setting> {
     return StreamBuilder<UserData>(
       stream: DataBaseService(uid: user.uid).userData,
       builder: (context, snapshot) {
+        if (snapshot.hasData){
+          UserData userData = snapshot.data;
         return GestureDetector(
             onTap: () {
             FocusScope.of(context).unfocus();
@@ -35,7 +38,6 @@ class _Brew_SettingState extends State<Brew_Setting> {
             key: _formkey,
             child: Column(
               children: <Widget>[
-                SizedBox(height: 10,),  
                 
                 Text("Settings",
                 style: TextStyle(
@@ -43,11 +45,12 @@ class _Brew_SettingState extends State<Brew_Setting> {
                 ),),
                 SizedBox(height: 20,),
                 TextFormField(
+                  initialValue: userData.name,
                   decoration: textInputDecoration.copyWith(
                     hintText: 'Enter a name',
                     labelText: 'Name',
                   ),
-                  validator: (val) => val.isNotEmpty ? 'Please enter a name': null,
+                  validator: (val) => val.isEmpty ? 'Please enter a name': null,
                   onChanged: (val) => setState(()  => _currentName = val),
                 ),  
                 SizedBox(height: 20,),
@@ -60,23 +63,24 @@ class _Brew_SettingState extends State<Brew_Setting> {
                     ),
                     hintText: null
                   ),
-                  value:_currentSugar ?? '0',
+                  value:_currentSugar ?? userData.sugar,
                   items: sugars.map((sugar){ 
                      return DropdownMenuItem(value: sugar,child:Text('$sugar sugars'));
                   }).toList(),
-                  validator: (val) => val.isNotEmpty ? 'Please select a sugar amount': null,
                   onChanged: (val)=>setState(()=>_currentSugar = val)),
                   SizedBox(height: 20,),
                   Row(
                     children: <Widget>[
                       SizedBox(width: 60,),
                       CircleAvatar(
-                        backgroundColor: Colors.brown[_currentStrength],
+                        backgroundColor: Colors.brown[_currentStrength ?? userData.strength],
+                        backgroundImage: AssetImage('Assets/coffee_icon.png'),
+                        radius: 30.0 ,
                       ),
                       Slider(
-                      activeColor: Colors.brown[_currentStrength ?? 100],  
-                      inactiveColor: Colors.brown[_currentStrength ?? 100],
-                      value: (_currentStrength ?? 100).toDouble(),  
+                      activeColor: Colors.brown[_currentStrength ?? userData.strength],  
+                      inactiveColor: Colors.brown[_currentStrength ?? userData.strength],
+                      value: (_currentStrength ?? userData.strength).toDouble(),  
                       min: 100,
                       max:900,
                       divisions: 8,
@@ -89,11 +93,12 @@ class _Brew_SettingState extends State<Brew_Setting> {
                 borderRadius: BorderRadius.all(Radius.circular(10))
               ),
                     onPressed: () async{
-                    FocusScope.of(context).unfocus();
-                    if(_formkey.currentState.validate()){ 
-                    
+                      if (_formkey.currentState.validate()){ 
+                    await DataBaseService(uid:user.uid).updateUserData(
+                      _currentSugar ?? userData.sugar, _currentName ?? userData.sugar, _currentStrength ?? userData.strength); 
                     }
                     
+                      Navigator.pop(context);
                     },
                     child: Text('Update',
                     style: TextStyle(
@@ -108,6 +113,10 @@ class _Brew_SettingState extends State<Brew_Setting> {
             ),
           ),
         );
+        }
+        else{
+          return Loading();
+        }
       }
     );
   }

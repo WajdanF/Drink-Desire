@@ -25,17 +25,22 @@ class Home extends StatelessWidget {
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.vertical(
           bottom: Radius.circular(10),
         )),
-          title: Text('Allergy App'),
+          title: Text('Drink Desire'),
           backgroundColor: Colors.brown[400],
           elevation: 0,
           actions: <Widget>[
             FlatButton.icon(
-              icon: Icon(Icons.person), 
+              icon: Icon(Icons.person,
+              color: Colors.white,), 
               
               onPressed: ()async{
                 await _auth.signOut();
                 },
-              label: Text('Logout'),
+              label: Text('Logout',
+              style: TextStyle(
+                color: Colors.white
+              ),),
+
             ),  
                
               IconButton(
@@ -45,7 +50,14 @@ class Home extends StatelessWidget {
               )],
         ),
          
-        body: BrewList(), 
+        body: Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage('Assets/coffee_bg.png'),
+              fit: BoxFit.cover,
+
+          )),
+          child: BrewList()), 
       ),
     );
   }

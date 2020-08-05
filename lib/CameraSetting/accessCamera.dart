@@ -9,12 +9,12 @@ class CameraWidget extends StatefulWidget {
 }
 
 class _CameraWidgetState extends State<CameraWidget> {
-  File _image;
+  File _images;
 
  Future getImage() async{
     var image = await ImagePicker.pickImage(source: ImageSource.camera);
     setState((){
-    _image = image;
+    _images = image;
      });
   }
 
@@ -26,7 +26,7 @@ class _CameraWidgetState extends State<CameraWidget> {
       ),
       body: Container(
         child: Center(
-          child: _image == null ? Text('No image selected!'): Image.file(_image),
+          child: _images == null ? Text('No image selected!'): Image.file(_images),
         
         ),
          

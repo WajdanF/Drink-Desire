@@ -10,7 +10,7 @@ class BrewList extends StatefulWidget {
 class _BrewListState extends State<BrewList> {
   @override
   Widget build(BuildContext context) {
-    final brews = Provider.of<List<Brew>>(context);
+    final brews = Provider.of<List<Brew>>(context) ?? [];
    brews.forEach((brew){
   print(brew.name);
   print(brew.sugar);
@@ -36,9 +36,10 @@ class _BrewListState extends State<BrewList> {
             },
             leading: CircleAvatar(
               backgroundColor: Colors.brown[x],
+              backgroundImage: AssetImage('Assets/coffee_icon.png'),
             ),
             title: Text('${brews[index].name}'),
-            subtitle: Text('${brews[index].sugar} sugars'),
+            subtitle: Text('Takes ${brews[index].sugar} sugar(s)'),
 
 
   

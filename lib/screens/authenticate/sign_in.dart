@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:germaway/models/constants.dart';
 import 'package:germaway/models/loading.dart';
-import 'package:germaway/screens/authenticate/register.dart';
 import 'package:germaway/services/auth.dart';
 
 class SignIn extends StatefulWidget {
