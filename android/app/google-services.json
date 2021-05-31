@@ -1,34 +1,33 @@
 {
   "project_info": {
-    "project_number": "1071248570947",
-    "firebase_url": "https://allergy-6c15e.firebaseio.com",
-    "project_id": "allergy-6c15e",
-    "storage_bucket": "allergy-6c15e.appspot.com"
+    "project_number": "1069654540430",
+    "project_id": "drink-desire",
+    "storage_bucket": "drink-desire.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1071248570947:android:9b60228b0ee2f8e38472f6",
+        "mobilesdk_app_id": "1:1069654540430:android:015860aff20749b54309df",
         "android_client_info": {
-          "package_name": "com.example.germaway"
+          "package_name": "com.company.drink_desire"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1071248570947-hdud44jv31019hjmkbou67rocra4qqni.apps.googleusercontent.com",
+          "client_id": "1069654540430-2jpb8nlesq6glksntcvm1g2re9numj01.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyA7ZH9vtwZ5VSPTM_2GM0AO-MgnpZxjYVI"
+          "current_key": "AIzaSyB7XSvocxRnBw9Z3BYh7Y7YnPHRLeh87gI"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "1071248570947-hdud44jv31019hjmkbou67rocra4qqni.apps.googleusercontent.com",
+              "client_id": "1069654540430-2jpb8nlesq6glksntcvm1g2re9numj01.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
