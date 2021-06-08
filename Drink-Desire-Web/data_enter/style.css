@@ -1,0 +1,152 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,800");
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url("../assets/back.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: "Montserrat", sans-serif;
+    height: 100vh;
+    margin: -20px 0 50px;
+}
+
+.container {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px 5px #000000;
+    position: relative;
+    overflow: hidden;
+    width: 350px;
+    height: 400px;
+}
+
+.form-container {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    transition: all 0.6s ease-in-out;
+}
+form {
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 50px;
+    height: 100%;
+    text-align: center;
+}
+
+input {
+    background-color: #eee;
+    border: none;
+    padding: 12px 15px;
+    margin: 8px 0;
+    width: 100%;
+    border-radius: 5px;
+    font-size:15px;
+}
+button {
+    border-radius: 20px;
+    border: 1px solid #ff4b2b;
+    background-color: #ff4b2b;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 12px 45px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: transform 80ms ease-in;
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+button:focus {
+    outline: none;
+}
+
+button:hover{
+    cursor:pointer;
+}
+
+button.ghost {
+    background-color: transparent;
+    border-color: #ffffff;
+}
+
+h1 {
+    font-weight: bold;
+    margin: 0;
+    margin-bottom: 10px;
+}
+.span {
+    font-size: 12px;
+    margin-bottom: 9px;
+}
+
+.select-box {
+    border-radius: 5px;
+    background-color: #eee;
+    cursor: pointer;
+    width: 100%;
+}
+
+.select {
+    color: black;
+    display: block;
+    font-size: 15px;
+    width: 98%;
+    padding: 5px 10px;
+    height: 40px;
+    background: none transparent;
+    border: none;
+}
+
+.select-box1 {
+    background-color: #eee;
+}
+
+
+.open .label::after {
+    content: "▲";
+}
+.label::after {
+    content: "▼";
+    font-size: 12px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 5px 15px;
+    border-left: 5px solid #fff;
+}
+
+.container-2{
+    width:100%;
+    margin-top: 20px;
+    display:flex;
+    justify-content: space-evenly;
+}
+.dot{
+    background-image: url("../assets/coffee_icon.png");
+    background-repeat:none;
+    background-size: 100%;
+    min-height: 60px;
+    min-width: 60px;    
+    margin-right:15px;
+    background-color:  #D7CCC8;
+    border-radius: 50%;
+}
+
+#strength{
+padding:0;
+
+}
